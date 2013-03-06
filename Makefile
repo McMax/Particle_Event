@@ -24,7 +24,5 @@ Dict.cpp: $(INCLUDES)
 	@echo "Generating dictionary..."
 	rootcint -f Dict.cpp -c -P -I$(ROOTSYS) -I/usr/local/include $(INCLUDES)
 
-clean: realclean
-
-realclean:
-	@rm -rf Dict.*
+clean:
+	@rm -rf Dict.* $(OBJ_DIR) $(INC_DIR)/Dict.h $(SRC_DIR)/Dict.cpp

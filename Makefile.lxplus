@@ -15,7 +15,11 @@ OBJECTS := $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
 #INCLUDES += $(INC_DIR)/linkdef.h
 INCLUDES = inc/Particle.h inc/Event.h inc/linkdef.h
 
-all: Dict.o
+all: $(OBJECTS) Dict.o
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp Dict.cpp
+	mkdir -p $(OBJ_DIR)
+	$(CC) -c $(CCFLAGS) $< -o $@ 
 
 Dict.o: Dict.cpp
 	g++ -c $(CCFLAGS) Dict.cpp -o Dict.o	

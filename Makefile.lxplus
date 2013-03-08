@@ -11,8 +11,6 @@ INC_DIR = $(TOPDIR)/inc
 
 SOURCES := $(shell find $(SRC_DIR) -type f -name "*.cpp")
 OBJECTS := $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
-#INCLUDES := $(shell find $(INC_DIR) -type f -name "*.h" | grep -v "linkdef.h" | grep -v "Prefifi.h")
-#INCLUDES += $(INC_DIR)/linkdef.h
 INCLUDES = inc/Particle.h inc/Event.h inc/ParticleTree.h inc/linkdef.h
 
 all: $(OBJECTS) Dict.o

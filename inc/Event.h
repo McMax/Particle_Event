@@ -23,6 +23,7 @@ public:
 	inline UInt_t GetNpos() const { return fNpos;}
 	inline TClonesArray* GetParticles() const { return fParticles;}
 	Particle* GetParticle(UInt_t) const;
+	UInt_t GetFirstParticle() const;
 
 	inline void SetEid(UInt_t eid) { fEid = eid;}
 

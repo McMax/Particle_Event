@@ -4,7 +4,7 @@ LD	= g++
 CCFLAGS = -g -O0 `root-config --cflags` -Wall -I$(INC_DIR)
 LDFLAGS = -g -O0 `root-config --libs` -Wall -L$(OBJ_DIR)
 
-TOPDIR = .
+TOPDIR = $(shell pwd)
 SRC_DIR = $(TOPDIR)/src
 OBJ_DIR = $(TOPDIR)/lib
 INC_DIR = $(TOPDIR)/inc
@@ -27,7 +27,10 @@ Dict.o: Dict.cpp
 
 Dict.cpp: $(INCLUDES)
 	@echo "Generating dictionary..."
-	rootcint -f Dict.cpp -c -P -I$(ROOTSYS) -I/usr/local/include $(INCLUDES)
+	rootcint -f $@ -c -P -I$(ROOTSYS) -I/usr/local/include $(INCLUDES)
+
+libPartEvLib.so: Dict.cpp $(SOURCES)
+	g++ -shared -fPIC -o $@ `root-config --ldflags` $(CCFLAGS) -I$(ROOTSYS)/include $^
 
 clean:
-	@rm -rf $(INC_DIR)/Dict.h $(SRC_DIR)/Dict.cpp $(OBJ_DIR)
+	@rm -rf $(INC_DIR)/Dict.h $(SRC_DIR)/Dict.cpp $(OBJ_DIR) Dict.*

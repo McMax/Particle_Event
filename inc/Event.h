@@ -28,7 +28,7 @@ public:
 	inline void SetEid(UInt_t eid) { fEid = eid;}
 
 	void AddParticle(UInt_t, Short_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t,
-			Int_t, Int_t, Int_t, Int_t, Float_t);
+			Int_t, Int_t, Int_t, Int_t);
 			
 	void AddParticle(const Particle&);
 	void Clear();

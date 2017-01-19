@@ -20,12 +20,17 @@ class Particle : public TObject
 	Int_t fNdEdxVtpc1;	//Number of dE/dx points in VTPC1
 	Int_t fNdEdxVtpc2;	//Number of dE/dx points in VTPC2
 	Int_t fNdEdxMtpc;	//Number of dE/dx points in MTPCs
+	Int_t fNClustersVtpc1; //Number of clusters in VTPC1
+	Int_t fNClustersVtpc2; //Number of clusters in VTPC2
+	Int_t fNClustersGtpc; //Number of clusters in GTPC
+	Int_t fNClustersMtpc; //Number of clusters in MTPCs
 
 public:
 	Particle();
 	Particle(UInt_t, Short_t, Float_t, Float_t, Float_t, Float_t, Float_t,
 		Float_t, Float_t, Float_t, Float_t,	//dE/dx global, dE/dx VTPC1, dE/dx VTPC2, dE/dx MTPC
-		Int_t, Int_t, Int_t, Int_t); //number of dE/dx points: global, VTPC1, VTPC2, MTPC
+		Int_t, Int_t, Int_t, Int_t, //number of dE/dx points: global, VTPC1, VTPC2, MTPC
+		Int_t, Int_t, Int_t, Int_t);//number of clusters in VTPC1, VTPC2, GTPC, MTPC
 	virtual ~Particle();
 
 	inline UInt_t GetPid() const { return fPid;}
@@ -44,6 +49,10 @@ public:
 	inline Int_t GetNdEdxVtpc1() const { return fNdEdxVtpc1;}
 	inline Int_t GetNdEdxVtpc2() const { return fNdEdxVtpc2;}
 	inline Int_t GetNdEdxMtpc() const { return fNdEdxMtpc;}
+	inline Int_t GetNClustersVtpc1() const { return fNClustersVtpc1;}
+	inline Int_t GetNClustersVtpc2() const { return fNClustersVtpc2;}
+	inline Int_t GetNClustersGtpc() const { return fNClustersGtpc;}
+	inline Int_t GetNClustersMtpc() const { return fNClustersMtpc;}
 	
 	inline void SetPid(UInt_t pid) { fPid = pid;}
 	inline void SetCharge(Short_t charge) { fCharge = charge;}
@@ -60,6 +69,10 @@ public:
 	inline void SetNdEdxVtpc1(Int_t ndedx_vtpc1) { fNdEdxVtpc1 = ndedx_vtpc1;}
 	inline void SetNdEdxVtpc2(Int_t ndedx_vtpc2) { fNdEdxVtpc2 = ndedx_vtpc2;}
 	inline void SetNdEdxMtpc(Int_t ndedx_mtpc) { fNdEdxMtpc = ndedx_mtpc;}
+	inline void SetNClustersVtpc1(Int_t nclusters_vtpc1) { fNClustersVtpc1 = nclusters_vtpc1;}
+	inline void SetNClustersVtpc2(Int_t nclusters_vtpc2) { fNClustersVtpc2 = nclusters_vtpc2;}
+	inline void SetNClustersGtpc(Int_t nclusters_gtpc) { fNClustersGtpc = nclusters_gtpc;}
+	inline void SetNClustersMtpc(Int_t nclusters_mtpc) { fNClustersMtpc = nclusters_mtpc;}
 
 	ClassDef(Particle,1);
 };

@@ -53,6 +53,12 @@ void ParticleTree::AddParticle(UInt_t pid, Short_t charge, Float_t bx, Float_t b
 	event->AddParticle(pid, charge, bx, by, px, py, pz, dedx, dedx_vtpc1, dedx_vtpc2, dedx_mtpc, ndedx, ndedx_vtpc1, ndedx_vtpc2, ndedx_mtpc, nclusters_vtpc1, nclusters_vtpc2, nclusters_gtpc, nclusters_mtpc);
 }
 
+void ParticleTree::AddParticle(Particle& source_particle)
+{
+	//event->AddParticle(source_particle);
+	event->AddParticle(source_particle,++part_id);
+}
+
 void ParticleTree::Close()
 {
 	tree->AutoSave("overwrite");

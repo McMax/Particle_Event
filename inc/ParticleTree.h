@@ -27,6 +27,7 @@ public:
 	UInt_t Check();
 	void AddParticle(Short_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Int_t, Int_t, Int_t, Int_t, Int_t, Int_t, Int_t, Int_t); //charge, bx, by, px, py, pz, dedx, dedx_vtpc1, dedx_vtpc2, dedx_mtpc, ndedx, ndedx_vtpc1, ndedx_vtpc2, ndedx_mtpc, nclusters_vtpc1, nclusters_vtpc2, nclusters_gtpc, nclusters_mtpc
 	void AddParticle(UInt_t, Short_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Int_t, Int_t, Int_t, Int_t, Int_t, Int_t, Int_t, Int_t); //pid, charge, bx, by, px, py, pz, dedx, dedx_vtpc1, dedx_vtpc2, dedx_mtpc, ndedx, ndedx_vtpc1, ndedx_vtpc2, ndedx_mtpc, nclusters_vtpc1, nclusters_vtpc2, nclusters_gtpc, nclusters_mtpc
+	void AddParticle(Particle&);
 
 	void Close();
 	virtual ~ParticleTree();

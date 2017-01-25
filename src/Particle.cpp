@@ -44,6 +44,63 @@ Particle::Particle(UInt_t pid, Short_t charge,
 	fNClustersMtpc = nclusters_mtpc;
 }
 
+Particle::Particle(Particle& source_particle)
+{
+	fPid = source_particle.fPid;
+	fCharge = source_particle.fCharge;
+
+	fBx = source_particle.fBx;
+	fBy = source_particle.fBy;
+
+	fPx = source_particle.fPx;
+	fPy = source_particle.fPy;
+	fPz = source_particle.fPz;
+
+	fdEdx = source_particle.fdEdx;
+	fdEdxVtpc1 = source_particle.fdEdxVtpc1;
+	fdEdxVtpc2 = source_particle.fdEdxVtpc2;
+	fdEdxMtpc = source_particle.fdEdxMtpc;
+
+	fNdEdx = source_particle.fNdEdx;
+	fNdEdxVtpc1 = source_particle.fNdEdxVtpc1;
+	fNdEdxVtpc2 = source_particle.fNdEdxVtpc2;
+	fNdEdxMtpc = source_particle.fNdEdxMtpc;
+
+	fNClustersVtpc1 = source_particle.fNClustersVtpc1;
+	fNClustersVtpc2 = source_particle.fNClustersVtpc2;
+	fNClustersGtpc = source_particle.fNClustersGtpc;
+	fNClustersMtpc = source_particle.fNClustersMtpc;
+}
+
+Particle::Particle(Particle& source_particle, UInt_t pid)
+{
+	fPid = pid;
+	fCharge = source_particle.fCharge;
+
+	fBx = source_particle.fBx;
+	fBy = source_particle.fBy;
+
+	fPx = source_particle.fPx;
+	fPy = source_particle.fPy;
+	fPz = source_particle.fPz;
+
+	fdEdx = source_particle.fdEdx;
+	fdEdxVtpc1 = source_particle.fdEdxVtpc1;
+	fdEdxVtpc2 = source_particle.fdEdxVtpc2;
+	fdEdxMtpc = source_particle.fdEdxMtpc;
+
+	fNdEdx = source_particle.fNdEdx;
+	fNdEdxVtpc1 = source_particle.fNdEdxVtpc1;
+	fNdEdxVtpc2 = source_particle.fNdEdxVtpc2;
+	fNdEdxMtpc = source_particle.fNdEdxMtpc;
+
+	fNClustersVtpc1 = source_particle.fNClustersVtpc1;
+	fNClustersVtpc2 = source_particle.fNClustersVtpc2;
+	fNClustersGtpc = source_particle.fNClustersGtpc;
+	fNClustersMtpc = source_particle.fNClustersMtpc;
+}
+
+
 Particle::~Particle()
 {
 

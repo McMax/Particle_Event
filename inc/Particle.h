@@ -26,6 +26,8 @@ public:
 	Particle(UInt_t, Short_t, Float_t, Float_t, Float_t, Float_t, Float_t,
 		Float_t, Float_t, Float_t, Float_t,	//dE/dx global, dE/dx VTPC1, dE/dx VTPC2, dE/dx MTPC
 		Int_t, Int_t, Int_t, Int_t); //number of dE/dx points: global, VTPC1, VTPC2, MTPC
+	Particle(Particle&);
+	Particle(Particle&, UInt_t);
 	virtual ~Particle();
 
 	inline UInt_t GetPid() const { return fPid;}

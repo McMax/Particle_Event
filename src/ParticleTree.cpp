@@ -55,8 +55,12 @@ void ParticleTree::AddParticle(UInt_t pid, Short_t charge, Float_t bx, Float_t b
 
 void ParticleTree::AddParticle(Particle& source_particle)
 {
-	//event->AddParticle(source_particle);
 	event->AddParticle(source_particle,++part_id);
+}
+
+void ParticleTree::AddParticle(Particle& source_particle, UInt_t pid)
+{
+	event->AddParticle(source_particle,pid);
 }
 
 void ParticleTree::Close()

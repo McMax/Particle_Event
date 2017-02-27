@@ -111,7 +111,7 @@ void Particle::Print()
 {
 	using namespace std;
 
-	cout << "[" << fPid << "]: px=" << fPx << ", py=" << fPy << ", pz=" << fPz << endl;
+	cout << "[" << fPid << "]: ch=" << fCharge << ", px=" << fPx << ", py=" << fPy << ", pz=" << fPz << endl;
 }
 
 ClassImp(Particle);

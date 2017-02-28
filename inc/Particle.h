@@ -29,6 +29,7 @@ public:
 	Particle(Particle&);
 	Particle(Particle&, UInt_t);
 	virtual ~Particle();
+	void Print();
 
 	inline UInt_t GetPid() const { return fPid;}
 	inline Short_t GetCharge() const { return fCharge;}

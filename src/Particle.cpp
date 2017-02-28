@@ -1,5 +1,6 @@
 #include "TObject.h"
 #include "Particle.h"
+#include <iostream>
 
 Particle::Particle()
 {
@@ -87,6 +88,13 @@ Particle::Particle(Particle& source_particle, UInt_t pid)
 Particle::~Particle()
 {
 
+}
+
+void Particle::Print()
+{
+	using namespace std;
+
+	cout << "[" << fPid << "]: ch=" << fCharge << ", px=" << fPx << ", py=" << fPy << ", pz=" << fPz << endl;
 }
 
 ClassImp(Particle);

@@ -6,22 +6,17 @@ Particle::Particle()
 {
 	fPid = 0;
 	fCharge = 0;
-	fBx = fBy = fPx = fPy = fPz = fdEdx = fdEdxVtpc1 = fdEdxVtpc2 = fdEdxMtpc = 0.;
-	fNdEdx = fNdEdxVtpc1 = fNdEdxVtpc2 = fNdEdxMtpc = 0;
+	fPx = fPy = fPz = fdEdx = fdEdxVtpc1 = fdEdxVtpc2 = fdEdxMtpc = 0.;
+	fClustersPositions = new TPoints3D(150);
 }
 
 Particle::Particle(UInt_t pid, Short_t charge, 
-			Float_t bx, Float_t by,
 			Float_t px, Float_t py, Float_t pz,
-			Float_t dedx, Float_t dedx_vtpc1, Float_t dedx_vtpc2, Float_t dedx_mtpc,
-			Int_t ndedx, Int_t ndedx_vtpc1, Int_t ndedx_vtpc2, Int_t ndedx_mtpc)
+			Float_t dedx, Float_t dedx_vtpc1, Float_t dedx_vtpc2, Float_t dedx_mtpc, TPoints3D *clusters_positions)
 			
 {
 	fPid = pid;
 	fCharge = charge;
-
-	fBx = bx;
-	fBy = by;
 
 	fPx = px;
 	fPy = py;
@@ -32,10 +27,7 @@ Particle::Particle(UInt_t pid, Short_t charge,
 	fdEdxVtpc2 = dedx_vtpc2;
 	fdEdxMtpc = dedx_mtpc;
 
-	fNdEdx = ndedx;
-	fNdEdxVtpc1 = ndedx_vtpc1;
-	fNdEdxVtpc2 = ndedx_vtpc2;
-	fNdEdxMtpc = ndedx_mtpc;
+	fClustersPositions = new TPoints3D(clusters_positions);
 }
 
 Particle::Particle(Particle& source_particle)
@@ -43,9 +35,6 @@ Particle::Particle(Particle& source_particle)
 	fPid = source_particle.fPid;
 	fCharge = source_particle.fCharge;
 
-	fBx = source_particle.fBx;
-	fBy = source_particle.fBy;
-
 	fPx = source_particle.fPx;
 	fPy = source_particle.fPy;
 	fPz = source_particle.fPz;
@@ -55,10 +44,7 @@ Particle::Particle(Particle& source_particle)
 	fdEdxVtpc2 = source_particle.fdEdxVtpc2;
 	fdEdxMtpc = source_particle.fdEdxMtpc;
 
-	fNdEdx = source_particle.fNdEdx;
-	fNdEdxVtpc1 = source_particle.fNdEdxVtpc1;
-	fNdEdxVtpc2 = source_particle.fNdEdxVtpc2;
-	fNdEdxMtpc = source_particle.fNdEdxMtpc;
+	fClustersPositions = new TPoints3D(source_particle.fClustersPositions);
 }
 
 Particle::Particle(Particle& source_particle, UInt_t pid)
@@ -66,9 +52,6 @@ Particle::Particle(Particle& source_particle, UInt_t pid)
 	fPid = pid;
 	fCharge = source_particle.fCharge;
 
-	fBx = source_particle.fBx;
-	fBy = source_particle.fBy;
-
 	fPx = source_particle.fPx;
 	fPy = source_particle.fPy;
 	fPz = source_particle.fPz;
@@ -78,10 +61,7 @@ Particle::Particle(Particle& source_particle, UInt_t pid)
 	fdEdxVtpc2 = source_particle.fdEdxVtpc2;
 	fdEdxMtpc = source_particle.fdEdxMtpc;
 
-	fNdEdx = source_particle.fNdEdx;
-	fNdEdxVtpc1 = source_particle.fNdEdxVtpc1;
-	fNdEdxVtpc2 = source_particle.fNdEdxVtpc2;
-	fNdEdxMtpc = source_particle.fNdEdxMtpc;
+	fClustersPositions = new TPoints3D(source_particle.fClustersPositions);
 }
 
 
@@ -95,6 +75,8 @@ void Particle::Print()
 	using namespace std;
 
 	cout << "[" << fPid << "]: ch=" << fCharge << ", px=" << fPx << ", py=" << fPy << ", pz=" << fPz << endl;
+	cout << "Clusters positions: "<< endl;
+	fClustersPositions->Print();
 }
 
 ClassImp(Particle);

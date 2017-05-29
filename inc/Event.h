@@ -27,7 +27,7 @@ public:
 
 	inline void SetEid(UInt_t eid) { fEid = eid;}
 
-	void AddParticle(UInt_t, Short_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, TPointsArray3D*);
+	void AddParticle(UInt_t, Short_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, UInt_t, Point*);
 			
 	void AddParticle(Particle&);
 	void AddParticle(Particle&, UInt_t);

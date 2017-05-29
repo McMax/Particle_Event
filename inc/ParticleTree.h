@@ -25,8 +25,8 @@ public:
 	void EndEvent();
 	void CancelEvent();
 	UInt_t Check();
-	void AddParticle(Short_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, TPointsArray3D*); //charge, px, py, pz, dedx, dedx_vtpc1, dedx_vtpc2, dedx_mtpc
-	void AddParticle(UInt_t, Short_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, TPointsArray3D*); //pid, charge, px, py, pz, dedx, dedx_vtpc1, dedx_vtpc2, dedx_mtpc
+	void AddParticle(Short_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, UInt_t, Point*); //charge, px, py, pz, dedx, dedx_vtpc1, dedx_vtpc2, dedx_mtpc
+	void AddParticle(UInt_t, Short_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, UInt_t, Point*); //pid, charge, px, py, pz, dedx, dedx_vtpc1, dedx_vtpc2, dedx_mtpc
 	void AddParticle(Particle&);
 	void AddParticle(Particle&, UInt_t);
 

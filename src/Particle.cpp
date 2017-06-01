@@ -7,7 +7,9 @@ Particle::Particle()
 	fPid = 0;
 	fCharge = 0;
 	fPx = fPy = fPz = fdEdx = fdEdxVtpc1 = fdEdxVtpc2 = fdEdxMtpc = 0.;
-	fClusters = new Point[150];
+	std::cout << "Creating 300 Points" << std::endl;
+	fClusters = new Point[300];
+	std::cout << "Points created" << std::endl;
 }
 
 Particle::Particle(UInt_t pid, Short_t charge, 
@@ -28,7 +30,7 @@ Particle::Particle(UInt_t pid, Short_t charge,
 	fdEdxMtpc = dedx_mtpc;
 
 	fNclusters = nclusters;
-	fClusters = new Point[fNclusters];
+	fClusters = new Point[300];
 	CopyClusters(clusters_positions, nclusters);
 }
 
@@ -47,7 +49,7 @@ Particle::Particle(Particle& source_particle)
 	fdEdxMtpc = source_particle.fdEdxMtpc;
 
 	fNclusters = source_particle.fNclusters;
-	fClusters = new Point[source_particle.fNclusters];
+	fClusters = new Point[300];
 	CopyClusters(source_particle.fClusters, source_particle.fNclusters);
 }
 
@@ -73,7 +75,9 @@ Particle::Particle(Particle& source_particle, UInt_t pid)
 
 Particle::~Particle()
 {
-	delete fClusters;
+	std::cout << "Remove particle" << std::endl;
+	//fClusters->Delete();
+	delete[] fClusters;
 }
 
 void Particle::CopyClusters(Point* source, UInt_t size)

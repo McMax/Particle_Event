@@ -1,3 +1,4 @@
+#include <iostream>
 #include "TObject.h"
 #include "TClonesArray.h"
 
@@ -7,21 +8,23 @@
 Event::Event()
 {
 	fEid = 0;
-	fParticles = new TClonesArray("Particle",15);
+	std::cout << "Creating array of Particles" << std::endl;
+	fParticles = new TClonesArray("Particle",30);
+	std::cout << "Array of Particles created" << std::endl;
 	fNpa = fNneg = fNpos = 0;
 }
 
 Event::Event(UInt_t eid)
 {
 	fEid = eid;
-	fParticles = new TClonesArray("Particle",15);
+	fParticles = new TClonesArray("Particle",30);
 	fNpa = fNneg = fNpos = 0;
 }
 
 Event::~Event()
 {
 	Clear();
-	delete fParticles;
+	fParticles->Clear("C");
 }
 
 Particle* Event::GetParticle(UInt_t index) const

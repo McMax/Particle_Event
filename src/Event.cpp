@@ -8,9 +8,7 @@
 Event::Event()
 {
 	fEid = 0;
-	std::cout << "Creating array of Particles" << std::endl;
 	fParticles = new TClonesArray("Particle",30);
-	std::cout << "Array of Particles created" << std::endl;
 	fNpa = fNneg = fNpos = 0;
 }
 

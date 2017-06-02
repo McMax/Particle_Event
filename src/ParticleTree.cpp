@@ -1,14 +1,10 @@
-#include <iostream>
 #include "ParticleTree.h"
 
 ParticleTree::ParticleTree(TString filename)
 {
-	std::cout << "New ParticleTree" << std::endl;
 	file = new TFile(filename, "recreate");
 	tree = new TTree("events","events");
-	std::cout << "Creating Event" << std::endl;
 	event = new Event();
-	std::cout << "Event created" << std::endl;
 	tree->Branch("event","Event",&event);
 	part_id = ev_id = 0;
 }

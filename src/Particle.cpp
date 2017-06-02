@@ -66,7 +66,7 @@ Particle::Particle(Particle& source_particle, UInt_t pid)
 
 Particle::~Particle()
 {
-	std::cout << "Remove particle" << std::endl;
+	
 }
 
 void Particle::Print()

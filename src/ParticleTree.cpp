@@ -46,14 +46,14 @@ void ParticleTree::CancelEvent()
 	event->Clear();
 }
 
-void ParticleTree::AddParticle(Short_t charge, Float_t px, Float_t py, Float_t pz, Float_t dedx, Float_t dedx_vtpc1, Float_t dedx_vtpc2, Float_t dedx_mtpc, UInt_t nclusters, Point *clusters_positions)
+void ParticleTree::AddParticle(Short_t charge, Float_t px, Float_t py, Float_t pz, Float_t dedx, Float_t dedx_vtpc1, Float_t dedx_vtpc2, Float_t dedx_mtpc, TNtuple *clusters_positions)
 {
-	event->AddParticle(++part_id, charge, px, py, pz, dedx, dedx_vtpc1, dedx_vtpc2, dedx_mtpc, nclusters, clusters_positions);
+	event->AddParticle(++part_id, charge, px, py, pz, dedx, dedx_vtpc1, dedx_vtpc2, dedx_mtpc, clusters_positions);
 }
 
-void ParticleTree::AddParticle(UInt_t pid, Short_t charge, Float_t px, Float_t py, Float_t pz, Float_t dedx, Float_t dedx_vtpc1, Float_t dedx_vtpc2, Float_t dedx_mtpc, UInt_t nclusters, Point *clusters_positions)
+void ParticleTree::AddParticle(UInt_t pid, Short_t charge, Float_t px, Float_t py, Float_t pz, Float_t dedx, Float_t dedx_vtpc1, Float_t dedx_vtpc2, Float_t dedx_mtpc, TNtuple *clusters_positions)
 {
-	event->AddParticle(pid, charge, px, py, pz, dedx, dedx_vtpc1, dedx_vtpc2, dedx_mtpc, nclusters, clusters_positions);
+	event->AddParticle(pid, charge, px, py, pz, dedx, dedx_vtpc1, dedx_vtpc2, dedx_mtpc, clusters_positions);
 }
 
 void ParticleTree::AddParticle(Particle& source_particle)

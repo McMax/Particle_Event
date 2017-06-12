@@ -4,14 +4,6 @@
 #include "TNtuple.h"
 #include "TObject.h"
 
-struct PPoints
-{
-	Short_t vtpc1;
-	Short_t gtpc;
-	Short_t vtpc2;
-	Short_t mtpc;
-};
-
 class Particle : public TObject
 {
 	UInt_t fPid;		//Particle index
@@ -24,7 +16,10 @@ class Particle : public TObject
 	Float_t fdEdxVtpc2;	//Particle energy loss in VTPC2
 	Float_t fdEdxMtpc;	//Particle energy loss in MTPCs
 	TNtuple* fClusters;	//Positions of clusters left by track
-	PPoints fppoints;
+	Short_t fPPvtpc1;
+	Short_t fPPgtpc;
+	Short_t fPPvtpc2;
+	Short_t fPPmtpc;
 
 public:
 
@@ -37,7 +32,7 @@ public:
 	};
 
 	Particle();
-	Particle(UInt_t, Short_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, TNtuple*, PPoints);	//dE/dx global, dE/dx VTPC1, dE/dx VTPC2, dE/dx MTPC
+	Particle(UInt_t, Short_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, TNtuple*, Short_t, Short_t, Short_t, Short_t);
 	Particle(Particle&);
 	Particle(Particle&, UInt_t);
 	virtual ~Particle();
@@ -54,7 +49,10 @@ public:
 	inline Float_t GetdEdxVtpc2() const { return fdEdxVtpc2;}
 	inline Float_t GetdEdxMtpc() const { return fdEdxMtpc;}
 	inline TNtuple* GetClustersPositions() const { return fClusters;}
-	inline PPoints GetPPoints() const { return fppoints;}
+	inline Short_t GetPPvtpc1() const { return fPPvtpc1;}
+	inline Short_t GetPPgtpc() const { return fPPgtpc;}
+	inline Short_t GetPPvtpc2() const { return fPPvtpc2;}
+	inline Short_t GetPPmtpc() const { return fPPmtpc;}
 	
 	inline void SetPid(UInt_t pid) { fPid = pid;}
 	inline void SetCharge(Short_t charge) { fCharge = charge;}
@@ -65,7 +63,6 @@ public:
 	inline void SetdEdxVtpc1(Float_t dedx_vtpc1) { fdEdxVtpc1 = dedx_vtpc1;}
 	inline void SetdEdxVtpc2(Float_t dedx_vtpc2) { fdEdxVtpc2 = dedx_vtpc2;}
 	inline void SetdEdxMtpc(Float_t dedx_mtpc) { fdEdxMtpc = dedx_mtpc;}
-	inline void SetPPoints(PPoints in_ppoints) { fppoints = in_ppoints;}
 
 	ClassDef(Particle,1);
 };

@@ -33,7 +33,7 @@ public:
 	inline void SetNA61Run(UInt_t runnumber) { fNA61Run = runnumber;}
 	inline void SetNA61Event(UInt_t eventno) { fNA61Event = eventno;}
 
-	void AddParticle(UInt_t, Short_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, TNtuple*, PPoints);
+	void AddParticle(UInt_t, Short_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, TNtuple*, Short_t, Short_t, Short_t, Short_t);
 			
 	void AddParticle(Particle&);
 	void AddParticle(Particle&, UInt_t);

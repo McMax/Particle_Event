@@ -22,6 +22,8 @@ public:
 	void SetEvid(UInt_t);
 	void BeginEvent();
 	void BeginEvent(UInt_t);
+	void BeginEvent(UInt_t, UInt_t);
+	void BeginEvent(UInt_t, UInt_t, UInt_t);
 	void EndEvent();
 	void CancelEvent();
 	UInt_t Check();

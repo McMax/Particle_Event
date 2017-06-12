@@ -24,6 +24,20 @@ void ParticleTree::BeginEvent(UInt_t eid)
 	event->SetEid(eid);
 }
 
+void ParticleTree::BeginEvent(UInt_t runnumber, UInt_t eventno)
+{
+	event->SetEid(++ev_id);
+	event->SetNA61Run(runnumber);
+	event->SetNA61Event(eventno);
+}
+
+void ParticleTree::BeginEvent(UInt_t eid, UInt_t runnumber, UInt_t eventno)
+{
+	event->SetEid(eid);
+	event->SetNA61Run(runnumber);
+	event->SetNA61Event(eventno);
+}
+
 UInt_t ParticleTree::Check()
 {
 	return event->GetNpa();

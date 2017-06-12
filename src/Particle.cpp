@@ -12,7 +12,7 @@ Particle::Particle()
 
 Particle::Particle(UInt_t pid, Short_t charge, 
 			Float_t px, Float_t py, Float_t pz,
-			Float_t dedx, Float_t dedx_vtpc1, Float_t dedx_vtpc2, Float_t dedx_mtpc, TNtuple *clusters_positions)
+			Float_t dedx, Float_t dedx_vtpc1, Float_t dedx_vtpc2, Float_t dedx_mtpc, TNtuple *clusters_positions, PPoints ppoints)
 			
 {
 	fPid = pid;
@@ -28,6 +28,8 @@ Particle::Particle(UInt_t pid, Short_t charge,
 	fdEdxMtpc = dedx_mtpc;
 
 	fClusters = (TNtuple*)clusters_positions->Clone();
+
+	fppoints = ppoints;
 }
 
 Particle::Particle(Particle& source_particle)
@@ -45,6 +47,8 @@ Particle::Particle(Particle& source_particle)
 	fdEdxMtpc = source_particle.fdEdxMtpc;
 
 	fClusters = (TNtuple*)source_particle.fClusters;
+
+	fppoints = source_particle.fppoints;
 }
 
 Particle::Particle(Particle& source_particle, UInt_t pid)
@@ -62,6 +66,8 @@ Particle::Particle(Particle& source_particle, UInt_t pid)
 	fdEdxMtpc = source_particle.fdEdxMtpc;
 
 	fClusters = (TNtuple*)source_particle.fClusters;
+
+	fppoints = source_particle.fppoints;
 }
 
 Particle::~Particle()
@@ -76,6 +82,7 @@ void Particle::Print()
 	cout << "[" << fPid << "]: ch=" << fCharge << ", px=" << fPx << ", py=" << fPy << ", pz=" << fPz << endl;
 	cout << "Clusters positions: "<< endl;
 	fClusters->Print();
+	cout << "Potential points: VTPC1=" << fppoints.vtpc1 << ", GTPC=" << fppoints.gtpc << ", VTPC2=" << fppoints.vtpc2 << ", MTPC=" << fppoints.mtpc << endl;
 }
 
 ClassImp(Particle);

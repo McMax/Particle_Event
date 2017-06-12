@@ -18,6 +18,7 @@ class ParticleTree
 	UInt_t ev_id;
 
 public:
+
 	ParticleTree(TString filename);
 	void SetEvid(UInt_t);
 	void BeginEvent();
@@ -27,8 +28,8 @@ public:
 	void EndEvent();
 	void CancelEvent();
 	UInt_t Check();
-	void AddParticle(Short_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, TNtuple*); //charge, px, py, pz, dedx, dedx_vtpc1, dedx_vtpc2, dedx_mtpc
-	void AddParticle(UInt_t, Short_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, TNtuple*); //pid, charge, px, py, pz, dedx, dedx_vtpc1, dedx_vtpc2, dedx_mtpc
+	void AddParticle(Short_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, TNtuple*, PPoints); //charge, px, py, pz, dedx, dedx_vtpc1, dedx_vtpc2, dedx_mtpc
+	void AddParticle(UInt_t, Short_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, Float_t, TNtuple*, PPoints); //pid, charge, px, py, pz, dedx, dedx_vtpc1, dedx_vtpc2, dedx_mtpc
 	void AddParticle(Particle&);
 	void AddParticle(Particle&, UInt_t);
 

@@ -27,7 +27,7 @@ Dict.o: Dict.cpp
 
 Dict.cpp: $(INCLUDES)
 	@echo "Generating dictionary..."
-	rootcint -f $@ -c -P -I$(ROOTSYS) -I/usr/local/include $(INCLUDES)
+	rootcint -f $@ -c -P -I$(ROOTSYS) $(INCLUDES)
 
 libPartEvLib.so: Dict.cpp $(SOURCES)
 	g++ -shared -fPIC -o $@ `root-config --ldflags` $(CCFLAGS) -I$(ROOTSYS)/include $^
